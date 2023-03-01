@@ -1,5 +1,4 @@
-#ifndef BOXMULLER
-#define BOXMULLER
+#include "boxmuller.h"
 /* boxmuller.c           Implements the Polar form of the Box-Muller
                          Transformation
                       (c) Copyright 1994, Everett F. Carter Jr.
@@ -8,20 +7,15 @@
 			  copyright notice is preserved.
 */
 
-#include <math.h>
-#include <cstdlib>
-#include <time.h>
-
 
 /*extern float ranf();         ranf() is uniform in 0..1 */
 
-float ranf()
+float boxmuller::ranf()
 {
-	return (float)rand() / (float)RAND_MAX;
+	return float(rand()) / float(RAND_MAX);
 }
 
-
-float box_muller(float m, float s)	/* normal random variate generator */
+float boxmuller::box_muller(float m, float s)	/* normal random variate generator */
 {				        /* mean m, standard deviation s */
 	float x1, x2, w, y1;
 	static float y2;
@@ -48,5 +42,3 @@ float box_muller(float m, float s)	/* normal random variate generator */
 
 	return( m + y1 * s );
 }
-
-#endif

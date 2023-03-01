@@ -18,6 +18,7 @@ private:
 
     // Map to store the prior probability of each class
     map<int, double> class_prior_probs;
+    
 public:
     // Function to train the classifier on a set of instances
     void train(vector<Instance>& instances);
